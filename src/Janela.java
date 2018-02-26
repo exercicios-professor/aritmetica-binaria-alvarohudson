@@ -39,6 +39,12 @@ public class Janela extends javax.swing.JDialog {
         setTitle("Aritmética Binária");
         setResizable(false);
 
+        valor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valor1ActionPerformed(evt);
+            }
+        });
+
         opcoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
 
         saida.setEditable(false);
@@ -113,10 +119,55 @@ public class Janela extends javax.swing.JDialog {
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
         if (this.opcoes.getSelectedIndex() == 0) {    //SOMA
             System.out.println("SOMA");
+            
+            String v1 = valor1.getText();
+            String v2 = valor2.getText();
+            String s = "";
+            int chupeta = 0;
+            
+            
+            
+            for( int x = v1.length()-1; x>=0; x--){
+            
+            System.out.println(v1.charAt(x));
+            int t1 = Integer.valueOf(v1.charAt(x));
+            int t2 = Integer.valueOf(v2.charAt(x));
+            
+            if(t1 + t2 + chupeta == 0){
+                
+                s = 0 + s;
+                chupeta = 0;
+            }
+            if(t1 + t2 + chupeta == 1){
+                
+                s = 0 + s;
+                chupeta = 0;
+            }
+            if(t1 + t2 + chupeta == 2){
+                
+                s = 0 + s;
+                chupeta = 1;
+            }
+            if(t1 + t2 + chupeta == 3){
+                
+                s = 1 + s;
+                chupeta = 1;
+                }
+                    
+
+        }
+            
+                        
+            
+            
         } else {                                      //SUBTRAÇÃO
             System.out.println("SUBTRAÇÃO");
         }
     }//GEN-LAST:event_enterActionPerformed
+
+    private void valor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valor1ActionPerformed
 
     /**
      * @param args the command line arguments
